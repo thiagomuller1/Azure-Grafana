@@ -1,0 +1,1904 @@
+{
+    "__inputs": [
+      {
+        "name": "DS_AZURE_PLUS",
+        "label": "AZP_PROD",
+        "description": "",
+        "type": "datasource",
+        "pluginId": "yesoreyeram-azure-datasource",
+        "pluginName": "Azure Plus"
+      }
+    ],
+    "__requires": [
+      {
+        "type": "panel",
+        "id": "bargauge",
+        "name": "Bar Gauge",
+        "version": ""
+      },
+      {
+        "type": "grafana",
+        "id": "grafana",
+        "name": "Grafana",
+        "version": "6.7.4"
+      },
+      {
+        "type": "panel",
+        "id": "grafana-piechart-panel",
+        "name": "Pie Chart",
+        "version": "1.3.9"
+      },
+      {
+        "type": "panel",
+        "id": "graph",
+        "name": "Graph",
+        "version": ""
+      },
+      {
+        "type": "panel",
+        "id": "stat",
+        "name": "Stat",
+        "version": ""
+      },
+      {
+        "type": "panel",
+        "id": "table",
+        "name": "Table",
+        "version": ""
+      },
+      {
+        "type": "datasource",
+        "id": "yesoreyeram-azure-datasource",
+        "name": "Azure Plus",
+        "version": "0.1.0"
+      }
+    ],
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": null,
+    "iteration": 1596118251152,
+    "links": [],
+    "panels": [
+      {
+        "datasource": "${DS_AZURE_PLUS}",
+        "gridPos": {
+          "h": 3,
+          "w": 10,
+          "x": 0,
+          "y": 0
+        },
+        "hideTimeOverride": true,
+        "id": 4,
+        "options": {
+          "colorMode": "background",
+          "fieldOptions": {
+            "calcs": [
+              "sum"
+            ],
+            "defaults": {
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "semi-dark-purple",
+                    "value": null
+                  }
+                ]
+              },
+              "title": "This month spend",
+              "unit": "currencyUSD"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.4",
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Daily Cost",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Monthly",
+              "grouping": [
+                {
+                  "name": "None",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": "now/M",
+        "timeShift": null,
+        "title": "",
+        "type": "stat"
+      },
+      {
+        "datasource": "${DS_AZURE_PLUS}",
+        "gridPos": {
+          "h": 3,
+          "w": 8,
+          "x": 10,
+          "y": 0
+        },
+        "hideTimeOverride": true,
+        "id": 6,
+        "options": {
+          "colorMode": "background",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "semi-dark-purple",
+                    "value": null
+                  }
+                ]
+              },
+              "title": "Average daily spend",
+              "unit": "currencyUSD"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.4",
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Daily Cost",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "None",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": "1M",
+        "timeShift": null,
+        "title": "",
+        "type": "stat"
+      },
+      {
+        "datasource": "${DS_AZURE_PLUS}",
+        "gridPos": {
+          "h": 3,
+          "w": 6,
+          "x": 18,
+          "y": 0
+        },
+        "hideTimeOverride": true,
+        "id": 5,
+        "options": {
+          "colorMode": "background",
+          "fieldOptions": {
+            "calcs": [
+              "last"
+            ],
+            "defaults": {
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "semi-dark-purple",
+                    "value": null
+                  }
+                ]
+              },
+              "title": "Today's spend",
+              "unit": "currencyUSD"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.4",
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Daily Cost",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "None",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": "now/M",
+        "timeShift": null,
+        "title": "",
+        "type": "stat"
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "${DS_AZURE_PLUS}",
+        "decimals": 0,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 5,
+          "x": 0,
+          "y": 3
+        },
+        "hiddenSeries": false,
+        "id": 3,
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": true,
+          "max": true,
+          "min": false,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 2,
+        "points": true,
+        "renderer": "flot",
+        "seriesOverrides": [
+          {
+            "alias": "Monthly Cost",
+            "color": "#A352CC"
+          }
+        ],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Monthly Cost",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Monthly",
+              "grouping": [
+                {
+                  "name": "None",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "9M",
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Montly cost",
+        "tooltip": {
+          "shared": false,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "decimals": 0,
+            "format": "currencyUSD",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "${DS_AZURE_PLUS}",
+        "decimals": 0,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 5,
+          "y": 3
+        },
+        "hiddenSeries": false,
+        "id": 2,
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": true,
+          "max": true,
+          "min": false,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [
+          {
+            "alias": "Daily Cost",
+            "color": "#A352CC"
+          }
+        ],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Daily Cost",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "None",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "90d",
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Daily cost",
+        "tooltip": {
+          "shared": false,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "decimals": 0,
+            "format": "currencyUSD",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "${DS_AZURE_PLUS}",
+        "decimals": 0,
+        "description": "sentinel,security center,advanced data security,advanced threat protection\n\nazure monitor, application insights,log analytics,insight and analytics\n\nazure cosmos db,sql database,redis cache,azure database for mysql,azure database for postgresql\n\nazure data factory,azure data factory v2,data lake store,azure databricks,\n\nstorage,backup,azure netapp files,storsimple\n\nvirtual machines,azure app service,logic apps,virtual machines licenses,functions,cloud services,azure cognitive search,app configuration,cognitive services,api management\n\nevent hubs,service bus,event grid,stream analytics\n\nbandwidth,virtual network,traffic manager,application gateway,network watcher,expressroute,azure firewall,vpn gateway\n\nautomation,azure bastion,azure devops,visual studio online\n\ncontainer registry,container instances\n\nkey vault,unassigned",
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 7,
+          "x": 11,
+          "y": 3
+        },
+        "hiddenSeries": false,
+        "id": 7,
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": true,
+          "max": true,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "sort": "total",
+          "sortDesc": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Security",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "sentinel",
+                    "security center",
+                    "advanced data security",
+                    "advanced threat protection"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "A"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Monitoring",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "azure monitor",
+                    " application insights",
+                    "log analytics",
+                    "insight and analytics"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "B"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Database",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "azure cosmos db",
+                    "sql database",
+                    "redis cache",
+                    "azure database for mysql",
+                    "azure database for postgresql"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "C"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Big Data",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "azure data factory",
+                    "azure data factory v2",
+                    "data lake store",
+                    "azure databricks",
+                    ""
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "D"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Storage",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "storage",
+                    "backup",
+                    "azure netapp files",
+                    "storsimple"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "E"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Compute",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "virtual machines",
+                    "azure app service",
+                    "logic apps",
+                    "virtual machines licenses",
+                    "functions",
+                    "cloud services",
+                    "azure cognitive search",
+                    "app configuration",
+                    "cognitive services",
+                    "api management"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "F"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Messaging",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "event hubs",
+                    "service bus",
+                    "event grid",
+                    "stream analytics"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "G"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Network",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "bandwidth",
+                    "virtual network",
+                    "traffic manager",
+                    "application gateway",
+                    "network watcher",
+                    "expressroute",
+                    "azure firewall",
+                    "vpn gateway"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "H"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Devops",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "automation",
+                    "azure bastion",
+                    "azure devops",
+                    "visual studio online"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "I"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Containers",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "container registry",
+                    "container instances"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "J"
+          },
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Others",
+              "filters": [
+                {
+                  "FilterType": "Dimensions",
+                  "Name": "ServiceName",
+                  "Operator": "In",
+                  "Values": [
+                    "key vault",
+                    "unassigned"
+                  ]
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "K"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Daily Spend by Service Category",
+        "tooltip": {
+          "shared": false,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "decimals": 0,
+            "format": "currencyUSD",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "breakPoint": "50%",
+        "cacheTimeout": null,
+        "combine": {
+          "label": "Others",
+          "threshold": ""
+        },
+        "datasource": "-- Dashboard --",
+        "fontSize": "80%",
+        "format": "currencyUSD",
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 18,
+          "y": 3
+        },
+        "id": 8,
+        "interval": null,
+        "legend": {
+          "show": true,
+          "sort": "total",
+          "sortDesc": true,
+          "values": true
+        },
+        "legendType": "Under graph",
+        "links": [],
+        "maxDataPoints": 3,
+        "nullPointMode": "connected",
+        "pieType": "pie",
+        "strokeWidth": "3",
+        "targets": [
+          {
+            "panelId": 7,
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Total Spend by Service type",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "${DS_AZURE_PLUS}",
+        "decimals": 0,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 13
+        },
+        "hiddenSeries": false,
+        "id": 9,
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": true,
+          "max": true,
+          "min": false,
+          "rightSide": true,
+          "show": true,
+          "sort": "avg",
+          "sortDesc": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Daily Cost",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ResourceGroupName",
+                  "type": "Dimension"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Daily Spend by Resource Group",
+        "tooltip": {
+          "shared": false,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "decimals": 0,
+            "format": "currencyUSD",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "${DS_AZURE_PLUS}",
+        "decimals": 0,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 14,
+          "x": 0,
+          "y": 21
+        },
+        "hiddenSeries": false,
+        "id": 11,
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": true,
+          "max": true,
+          "min": false,
+          "rightSide": true,
+          "show": true,
+          "sort": "avg",
+          "sortDesc": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Daily Cost",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "ServiceName",
+                  "type": "Dimension"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Daily Spend by Service type",
+        "tooltip": {
+          "shared": false,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "decimals": 0,
+            "format": "currencyUSD",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "${DS_AZURE_PLUS}",
+        "decimals": 0,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 10,
+          "x": 14,
+          "y": 21
+        },
+        "hiddenSeries": false,
+        "id": 10,
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": true,
+          "max": true,
+          "min": false,
+          "rightSide": true,
+          "show": true,
+          "sort": "avg",
+          "sortDesc": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "Daily Cost",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "stage",
+                  "type": "TagKey"
+                }
+              ],
+              "subscriptionId": "$Subscription",
+              "subscriptionName": "$Subscription"
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Cost Analysis",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Daily Spend by Stage",
+        "tooltip": {
+          "shared": false,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "decimals": 0,
+            "format": "currencyUSD",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "datasource": "${DS_AZURE_PLUS}",
+        "gridPos": {
+          "h": 6,
+          "w": 10,
+          "x": 0,
+          "y": 28
+        },
+        "id": 15,
+        "options": {
+          "displayMode": "gradient",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "semi-dark-purple",
+                    "value": null
+                  }
+                ]
+              },
+              "title": "$__cell_0",
+              "unit": "decgbytes"
+            },
+            "overrides": [],
+            "values": true
+          },
+          "orientation": "horizontal",
+          "showUnfilled": true
+        },
+        "pluginVersion": "6.7.4",
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "None",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "",
+              "subscriptionName": ""
+            },
+            "azureLogAnalytics": {
+              "query": "",
+              "workspace": ""
+            },
+            "azureResourceGraph": {
+              "query": "resources | where subscriptionId in (\"$Subscription\")\n| where type == \"microsoft.compute/disks\" or  type == \"microsoft.compute/snapshots\"\n| extend diskState = tostring(properties.diskState)\n| extend diskSizeGB = toint(properties.diskSizeGB)\n| extend diskCategory = iff(isempty(tostring(properties.osType)), 'Data Disk', 'OS Disk') | extend diskState = iff( type == \"microsoft.compute/snapshots\", \"Snapshot\", diskState) \n| summarize total_diskSizeGB = sum(diskSizeGB) by diskState",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Resource Graph",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Disks state",
+        "type": "bargauge"
+      },
+      {
+        "columns": [],
+        "datasource": "${DS_AZURE_PLUS}",
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 6,
+          "w": 14,
+          "x": 10,
+          "y": 28
+        },
+        "id": 17,
+        "pageSize": null,
+        "pluginVersion": "6.6.0",
+        "showHeader": true,
+        "sort": {
+          "col": 2,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "Total Size",
+            "align": "auto",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "diskSizeGB",
+            "thresholds": [],
+            "type": "number",
+            "unit": "decgbytes"
+          },
+          {
+            "alias": "",
+            "align": "auto",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "linkUrl": "",
+            "mappingType": 1,
+            "pattern": "id",
+            "thresholds": [],
+            "type": "hidden",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "align": "auto",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": true,
+            "linkTargetBlank": true,
+            "linkTooltip": "Azure Portal",
+            "linkUrl": "https://portal.azure.com/#@MYTENANT.onmicrosoft.com/resource${__cell_0}/overview",
+            "mappingType": 1,
+            "pattern": "name",
+            "thresholds": [],
+            "type": "string",
+            "unit": "short"
+          },
+          {
+            "alias": "",
+            "align": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 0,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "None",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "",
+              "subscriptionName": ""
+            },
+            "azureLogAnalytics": {
+              "query": "",
+              "workspace": ""
+            },
+            "azureResourceGraph": {
+              "query": "resources | where subscriptionId in ('$Subscription')\n| where type == \"microsoft.compute/disks\" \n| extend platform = tolower(strcat(tags.Platform, tags.platform))\n| extend stage = tolower(strcat(tags.Stage, tags.stage))\n| extend platform = iff(isempty(platform), 'unknown', platform)\n| extend stage = iff(isempty(stage), 'unknown', stage)\n| extend diskState = tostring(properties.diskState)\n| extend diskSizeGB = toint(properties.diskSizeGB)\n| extend diskCategory = iff(isempty(tostring(properties.osType)), 'Data Disk', 'OS Disk')\n| where diskState == 'Unattached'\n| order by diskSizeGB desc\n| project id, name, diskSizeGB\n| limit 100",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Resource Graph",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Top unattached disks by size",
+        "transform": "table",
+        "type": "table"
+      },
+      {
+        "columns": [],
+        "datasource": "${DS_AZURE_PLUS}",
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 5,
+          "w": 24,
+          "x": 0,
+          "y": 34
+        },
+        "id": 13,
+        "pageSize": null,
+        "showHeader": true,
+        "sort": {
+          "col": 2,
+          "desc": true
+        },
+        "styles": [
+          {
+            "alias": "",
+            "align": "",
+            "colorMode": null,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "pattern": "/.*/",
+            "thresholds": [],
+            "type": "string",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "azureAppInsights": {
+              "appInsightsAppId": "",
+              "query": "",
+              "workspace": ""
+            },
+            "azureCostAnalysis": {
+              "alias": "",
+              "filters": [
+                {
+                  "FilterType": "None",
+                  "Name": "None",
+                  "Operator": "In",
+                  "Values": []
+                }
+              ],
+              "granularity": "Daily",
+              "grouping": [
+                {
+                  "name": "None",
+                  "type": "None"
+                }
+              ],
+              "subscriptionId": "",
+              "subscriptionName": ""
+            },
+            "azureLogAnalytics": {
+              "query": ""
+            },
+            "azureResourceGraph": {
+              "query": "advisorresources\n| where type == 'microsoft.advisor/recommendations'\n| where properties.category == 'Cost' \n| where subscriptionId in ('$Subscription')\n| summarize\n     resources = dcount(tostring(properties.resourceMetadata.resourceId)),\n     savings = sum(todouble(properties.extendedProperties.savingsAmount))\n     by\n     solution = tostring(properties.shortDescription.solution),\n     currency = tostring(properties.extendedProperties.savingsCurrency)\n| project solution, resources, savings = bin(savings, 0.01), currency\n| order by savings desc",
+              "skip": 0,
+              "top": 1000
+            },
+            "queryType": "Azure Resource Graph",
+            "refId": "A"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Azure Advisor - Cost suggestions",
+        "transform": "table",
+        "type": "table"
+      }
+    ],
+    "schemaVersion": 22,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "allValue": null,
+          "current": {},
+          "datasource": "${DS_AZURE_PLUS}",
+          "definition": "Subscriptions()",
+          "hide": 0,
+          "includeAll": false,
+          "index": -1,
+          "label": null,
+          "multi": false,
+          "name": "Subscription",
+          "options": [],
+          "query": "Subscriptions()",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        }
+      ]
+    },
+    "time": {
+      "from": "now/M",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ]
+    },
+    "timezone": "utc",
+    "title": "Azure Cost - By Subscription",
+    "uid": "azure-cost-by-subscription",
+    "variables": {
+      "list": []
+    },
+    "version": 1
+  }
